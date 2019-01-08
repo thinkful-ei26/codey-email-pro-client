@@ -8,7 +8,6 @@ import Dashboard from './dashboard';
 import NewEmailPage from './new-email-page';
 import NewAddressPage from './new-address-page';
 
-
 export class App extends React.Component {
 
     render() {

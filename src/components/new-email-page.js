@@ -2,15 +2,14 @@ import React from 'react';
 import {connect} from 'react-redux';
 import {Link} from 'react-router-dom';
 
-import EmailForm from './email-form';
+import NewEmailForm from './email-form';
 
 export function NewEmailPage(props) {
-    
     return (
         <div className="new-email">
             <h2>New email</h2>
-            <EmailForm />
-            <Link to="/">cancel</Link>
+            <NewEmailForm history={props.history} />
+            <Link to="/dashboard">cancel</Link>
         </div>
     );
 }

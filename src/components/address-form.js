@@ -1,12 +1,15 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
-import {login} from '../actions/auth';
-import {required, nonEmpty} from '../validators';
+import {required} from '../validators';
+import { AddNewAddress } from '../actions/addresses';
+import {populateAddresses} from '../actions/data';
 
 export class NewAddressForm extends React.Component {
     onSubmit(values) {
-        return this.props.dispatch(login(values.username, values.password));
+        this.props.dispatch(AddNewAddress(values.name, values.address))
+        this.props.dispatch(populateAddresses());
+        this.props.history.push('/dashboard');
     }
 
     render() {
@@ -20,29 +23,29 @@ export class NewAddressForm extends React.Component {
         }
         return (
             <form
-                className="login-form"
+                className="address-form"
                 onSubmit={this.props.handleSubmit(values =>
                     this.onSubmit(values)
                 )}>
                 {error}
-                <label htmlFor="username">Username</label>
+                <label htmlFor="name">Name</label>
                 <Field
                     component={Input}
                     type="text"
-                    name="username"
-                    id="username"
-                    validate={[required, nonEmpty]}
+                    name="name"
+                    id="name"
+                    validate={required}
                 />
-                <label htmlFor="password">Password</label>
+                <label htmlFor="address">Address</label>
                 <Field
                     component={Input}
-                    type="password"
-                    name="password"
-                    id="password"
-                    validate={[required, nonEmpty]}
+                    type="text"
+                    name="address"
+                    id="address"
+                    validate={required}
                 />
                 <button disabled={this.props.pristine || this.props.submitting}>
-                    Log in
+                    Add
                 </button>
             </form>
         );
@@ -50,6 +53,6 @@ export class NewAddressForm extends React.Component {
 }
 
 export default reduxForm({
-    form: 'login',
-    onSubmitFail: (errors, dispatch) => dispatch(focus('login', 'username'))
+    form: 'newAddress',
+    onSubmitFail: (errors, dispatch) => dispatch(focus('newAddress', 'address'))
 })(NewAddressForm);
