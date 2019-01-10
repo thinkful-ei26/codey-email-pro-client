@@ -4,9 +4,11 @@ import {Link} from 'react-router-dom';
 
 import NewEmailForm from './email-form';
 
+import '../css/form.css';
+
 export function NewEmailPage(props) {
     return (
-        <div className="new-email">
+        <div className="container">
             <h2>New email</h2>
             <NewEmailForm history={props.history} />
             <Link to="/dashboard">cancel</Link>

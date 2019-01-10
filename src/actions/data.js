@@ -1,6 +1,8 @@
 import {API_BASE_URL} from '../config';
 import {normalizeResponseErrors} from './utils';
 
+// changes fetch_name to fetch_name_success and change populateName to fetchName add each action to its named action file
+
 export const FETCH_ADDRESSES = 'FETCH_ADDRESSES';
 export const fetchAddresses = addresses => ({
     type: FETCH_ADDRESSES,
@@ -57,9 +59,7 @@ export const populateEmails = () => (dispatch, getState) => {
         .then(res => normalizeResponseErrors(res))
         .then(res => res.json())
         .then(res => {
-            console.log(res)
-            const emails = res.map( obj => obj.title)
-            console.log(emails)
+            const emails = res.map( obj => [obj._id, obj.title, obj.content, obj.recipients])
             dispatch(fetchEmails(emails))})
         .catch(err => {
             dispatch(fetchEmailsError(err));

@@ -1,6 +1,7 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
+import textarea from './text-area';
 import {required} from '../validators';
 import { AddNewEmail } from '../actions/emails';
 import {populateEmails} from '../actions/data';
@@ -39,8 +40,8 @@ export class NewEmailForm extends React.Component {
                 />
                 <label htmlFor="content">Content</label>
                 <Field
-                    component={Input}
-                    type="text-area"
+                    component={textarea}
+                    type="textarea"
                     name="content"
                     id="content"
                     validate={required}
@@ -48,7 +49,7 @@ export class NewEmailForm extends React.Component {
                 <label htmlFor="recipients">Recipients</label>
                 <Field
                     component={Input}
-                    type="text-area"
+                    type="text"
                     name="recipients"
                     id="recipients"
                     validate={required}

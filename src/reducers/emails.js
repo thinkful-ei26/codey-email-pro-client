@@ -8,7 +8,6 @@ const initialState = {
 
 export default function reducer(state = initialState, action) {
     if (action.type === FETCH_EMAILS) {
-        console.log(action.emails)
         return Object.assign({}, state, {
             emails: action.emails
         });

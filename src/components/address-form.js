@@ -1,7 +1,7 @@
 import React from 'react';
 import {Field, reduxForm, focus} from 'redux-form';
 import Input from './input';
-import {required} from '../validators';
+import {required, isEmail} from '../validators';
 import { AddNewAddress } from '../actions/addresses';
 import {populateAddresses} from '../actions/data';
 
@@ -42,7 +42,7 @@ export class NewAddressForm extends React.Component {
                     type="text"
                     name="address"
                     id="address"
-                    validate={required}
+                    validate={required && isEmail}
                 />
                 <button disabled={this.props.pristine || this.props.submitting}>
                     Add

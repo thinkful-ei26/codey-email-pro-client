@@ -1,0 +1,42 @@
+.dashboard {
+    margin: 0 auto;
+    margin-top: 4vh;
+    padding: 25px;
+    background-color: white;
+    width: 95vw;
+    height: 95vh;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.dashboard-name {
+    text-align: center;
+}
+
+.addresses {
+    float: left;
+    width: 25%;
+    padding-left: 1vw;
+}
+
+.emails {
+    float: left;
+    width: 75%;
+}
+
+.email-container {
+    border: 1px solid black;
+    border-radius: 5px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    margin-bottom: 1vh;
+    margin-right: 1vw;
+}
+
+ul {
+    cursor:pointer;
+}
+
+.list {
+    overflow: auto;
+    height: 50vh;
+}
